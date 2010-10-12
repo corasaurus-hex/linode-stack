@@ -15,7 +15,7 @@ end
 
 package :redis_monitor do
 
-  transfer 'resources/god/redis', '~/redis', :sudo => true do
+  transfer 'resources/god/redis', '/root/redis', :sudo => true do
     pre :install, 'sudo mkdir -p /etc/god/conf'
     post :install, 'sudo mv -f ~/redis /etc/god/conf/redis'
   end

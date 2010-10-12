@@ -8,7 +8,7 @@ package :god_gem do
 
   gem 'god'
 
-  transfer 'resources/god/god', '~/god', :sudo => true do
+  transfer 'resources/god/god', '/root/god', :sudo => true do
     post :install, 'sudo mv -f ~/god /etc/init.d/god'
     post :install, 'sudo chmod +x /etc/init.d/god'
     post :install, 'sudo mkdir -p /var/log/god && chown deploy:deploy /var/log/god'
@@ -26,7 +26,7 @@ end
 
 package :god_config do
 
-  transfer 'resources/god/main', '~/main', :sudo => true do
+  transfer 'resources/god/main', '/root/main', :sudo => true do
     pre :install, 'sudo mkdir -p /etc/god/conf'
     post :install, 'sudo mv -f ~/main /etc/god/main'
   end

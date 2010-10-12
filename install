@@ -5,4 +5,4 @@ if $*.empty? || !%w{development qa staging production}.include?($*[0])
   exit 1
 end
 
-exec("sprinkle -c -v -s config/install.rb RAILS_ENV=#{$*[0]}")
+exec("bundle exec sprinkle -c -v -s config/install.rb RAILS_ENV=#{$*[0]}")

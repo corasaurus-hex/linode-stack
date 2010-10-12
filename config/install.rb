@@ -20,6 +20,7 @@ policy :all, :roles => :app do
   requires :ruby_enterprise
   requires :god
   requires :tools
+  requires :postgres
   requires :apache
   requires :passenger
   requires :gems

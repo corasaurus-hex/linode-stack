@@ -2,7 +2,7 @@ package :user do
 
   requires :create_user
 
-  transfer 'resources/ssh', '~/ssh', :recursive => true do
+  transfer 'resources/ssh', '/root/ssh', :recursive => true do
     post :install, 'sudo mkdir /home/deploy/.ssh'
     post :install, 'sudo mv -f ~/ssh/* /home/deploy/.ssh'
     post :install, 'sudo ln -s /home/deploy/.ssh/id_rsa_deploy /home/deploy/.ssh/id_rsa'
@@ -13,7 +13,7 @@ package :user do
     post :install, 'rmdir ~/ssh'
   end
 
-  transfer 'resources/home/profile', '~/profile', :render => true, :locals => { :rails_env => ENV['RAILS_ENV'] } do
+  transfer 'resources/home/profile', '/root/profile', :render => true, :locals => { :rails_env => ENV['RAILS_ENV'] } do
     post :install, 'sudo chown deploy:deploy ~/profile'
     post :install, 'sudo mv -f ~/profile /home/deploy/.profile'
   end

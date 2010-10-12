@@ -34,7 +34,7 @@ package :passenger_config do
   requires :apache, :passenger_module
   version "2.2.15"
 
-  transfer 'resources/apache/passenger.conf', '~/passenger.conf', :render => true, :locals => { :rails_env => ENV["RAILS_ENV"], :version => version } do
+  transfer 'resources/apache/passenger.conf', '/root/passenger.conf', :render => true, :locals => { :rails_env => ENV["RAILS_ENV"], :version => version } do
     post :install, 'sudo mv -f ~/passenger.conf /etc/apache2/extras/'
   end
 
@@ -45,7 +45,7 @@ package :apache_config do
 
   requires :apache, :passenger_module
 
-  transfer 'resources/apache/site', '~/site', :render => true, :locals => { :rails_env => ENV["RAILS_ENV"] } do
+  transfer 'resources/apache/site', '/root/site', :render => true, :locals => { :rails_env => ENV["RAILS_ENV"] } do
     post :install, 'sudo mkdir -p /data/CHANGEME/current/public /data/CHANGEME/httpd_logs'
     post :install, 'sudo chown -R deploy:deploy /data'
     post :install, 'sudo mv -f ~/site /etc/apache2/sites-available/CHANGEME'

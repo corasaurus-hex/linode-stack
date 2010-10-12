@@ -1,4 +1,4 @@
-package :dashboard_gems do
+package :gems do
 
   requires :ruby_enterprise
 
