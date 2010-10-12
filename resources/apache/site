@@ -1,0 +1,21 @@
+<VirtualHost *:80>
+  ServerAdmin "CHANGEME@CHANGEME.com"
+  DocumentRoot /data/CHANGEME/current/public
+  CustomLog /data/CHANGEME/httpd_logs/access_log combined
+  ErrorLog /data/CHANGEME/httpd_logs/error_log
+
+  RailsEnv <%= rails_env %>
+
+  <Directory /data/CHANGEME/current/public>
+    Options FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+  </Directory>
+
+  # Deflate
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/javascript text/css
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+</VirtualHost>

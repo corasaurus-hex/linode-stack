@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+if $*.empty? || !%w{development qa staging production}.include?($*[0])
+  puts "You must specify a valid Rails environment: install [development|qa|staging|production]"
+  exit 1
+end
+
+exec("sprinkle -c -v -s config/install.rb RAILS_ENV=#{$*[0]}")

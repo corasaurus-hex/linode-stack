@@ -1,1 +1,3 @@
 /config/deploy.rb
+/resources/config
+/resources/ssh

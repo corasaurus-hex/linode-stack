@@ -1,0 +1,10 @@
+/data/CHANGEME/httpd_logs/*_log {
+  rotate 4
+  weekly
+  compress
+  copytruncate
+  dateext
+  dateformat -%Y-%m-%d-%s
+  ifempty
+  missingok
+}
