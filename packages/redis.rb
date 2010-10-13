@@ -21,3 +21,12 @@ package :redis_monitor do
   end
 
 end
+
+package :resque_monitor do
+
+  transfer 'resources/god/resque', '/root/resque', :sudo => true do
+    pre :install, 'sudo mkdir -p /etc/god/conf'
+    post :install, 'sudo mv -f ~/resque /etc/god/conf/resque'
+  end
+
+end

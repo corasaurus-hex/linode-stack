@@ -1,15 +1,13 @@
 rails_env   = ENV['RAILS_ENV']  || "<%= rails_env %>"
 rails_root  = ENV['RAILS_ROOT'] || "/data/CHANGEME/current"
 
-
-
 God.watch do |w|
-  w.name     = "resque"
-  w.group    = 'resque'
+  w.name     = "resque-1"
+  #w.group    = 'resque'
   w.interval = 30.seconds
   w.env      = {"RAILS_ENV"=>rails_env, "QUEUE"=>"*", "VERBOSE"=>'1'}
   w.start    = "rake -f #{rails_root}/Rakefile resque:setup resque:work"
-  w.log      = '/var/log/resque.log'
+  w.log      = '/data/CHANGEME/logs/resque.log'
 
   w.uid = 'deploy'
   w.gid = 'deploy'

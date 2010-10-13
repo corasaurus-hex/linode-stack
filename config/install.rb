@@ -26,6 +26,7 @@ policy :all, :roles => :app do
   requires :gems
   requires :app_configs
   requires :logrotate
+  requires :resque
 end
 
 deployment do
