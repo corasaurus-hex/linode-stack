@@ -22,6 +22,7 @@ policy :all, :roles => :app do
   requires :tools
   requires :postgres
   requires :apache
+  requires :apache_upload_progress_module
   requires :passenger
   requires :gems
   requires :app_configs

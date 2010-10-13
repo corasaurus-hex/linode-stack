@@ -13,6 +13,17 @@
     Allow from all
   </Directory>
 
+  <Location />
+      # enable tracking uploads in /
+      TrackUploads On
+  </Location>
+
+  <Location /progress>
+      # enable upload progress reports in /progress
+      ReportUploads On
+  </Location>
+
+
   # Deflate
   AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/javascript text/css
   BrowserMatch ^Mozilla/4 gzip-only-text/html
